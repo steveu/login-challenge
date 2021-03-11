@@ -13,8 +13,8 @@
 
 Any of these could be wrong...
 
-* Looking at a login system for "The Product", not to be shared with something else
-* ~~*BigFish* is important enough to do custom work for (and we do that kind of work)~~
+* Looking at a login system for a single product, not login shared across different services
+* *BigFish* is important enough to do custom work for (and we do that kind of work)
 
 ## Questions
 
