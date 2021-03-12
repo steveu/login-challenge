@@ -5,9 +5,9 @@
 * Email based
 * Secure (email/password sufficient)
 * Custom branding (simple colour/font modifiers on clean base styles. Custom CSS simpler/more flexible?)
-* Statistics (login user+timestamp flexible enough to start with?)
-* Authenticated dashboard to display basic stats
-* Single sign on integration (OAuth, OpenID?)
+* Logs (store login/logout events as user+timestamp would be flexibile)
+* Authenticated dashboard for usage statistics
+* Single sign on integration (OAuth, OpenID possibilities)
 
 ## Assumtions
 
@@ -23,3 +23,4 @@ Any of these could be wrong...
 * ~~Do existing "usernames" need converting or require notification of change to login~~ No
 * ~~What level of security (all login should be secure, but email/password is vulnerable. 2 Factor Auth needed?~~ 2 Factor Auth not needed initially
 * Have we considered using parts or all of a 3rd Party login provider e.g. AuthO or open source library?
+* What form of single sign on integration are BigFish asking for? (and what makes sense for our product?)
