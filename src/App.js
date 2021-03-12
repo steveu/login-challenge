@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 
-import Application from './components/application/application';
-import Login from './components/login/login';
+// Application and login are loaded lazily to enable fast login
+const Application = React.lazy(() => import('./components/application/application'));
+const Login = React.lazy(() => import('./components/login/login'));
 
 function App() {
   const [user, setUser] = useState(false);
@@ -12,7 +13,13 @@ function App() {
     setUser(false);
   }
 
-  return user ? <Application logout={logout} /> : <Login onSuccess={login} />;
+  return (
+    <div>
+      <Suspense fallback={<div>Loading... </div>}>
+      {user ? <Application logout={logout} /> : <Login onSuccess={login} />}
+      </Suspense>
+    </div>
+  )
 }
 
 export default App;
