@@ -11,6 +11,7 @@ const Login = React.lazy(() => import('./components/login/login'));
 
 function App() {
   const [user, setUser] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   // Read token from local storage on first render
   useEffect(() => {
@@ -26,12 +27,18 @@ function App() {
   }, []);
 
   const handleLogin = (email, password) => {
-    login(email, password).then((token) => {
-      localStorage.setItem('user', token);
-      setUser({
-        email
-      });
-    });
+    setLoginError(false);
+    login(email, password).then(
+      (token) => {
+        localStorage.setItem('user', token);
+        setUser({
+          email
+        });
+      },
+      (response) => {
+        setLoginError(response.error);
+      }
+    );
   };
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -43,7 +50,7 @@ function App() {
       {user ? (
         <Application user={user} logout={handleLogout} />
       ) : (
-        <Login onSuccess={handleLogin} />
+        <Login onSuccess={handleLogin} error={loginError} />
       )}
     </Suspense>
   );

@@ -9,7 +9,13 @@ export const login = (email, password) => {
   };
   const token = sign(user, secret);
 
-  return new Promise((resolve) => {
-    resolve(token);
+  return new Promise((resolve, reject) => {
+    if (email === 'steve@urm.st') {
+      resolve(token);
+    } else {
+      reject({
+        error: 'Account not found'
+      });
+    }
   });
 };

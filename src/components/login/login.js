@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import './login.scss';
 
-function Login({ onSuccess }) {
+function Login({ onSuccess, error }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
     onSuccess(email, password);
   };
 
   return (
-    <form className="login" method="post">
+    <form className="login" method="post" onSubmit={handleLogin}>
       <legend>Login</legend>
+      {error ? <p>{error}</p> : null}
       <fieldset>
         <div className="field">
           <label htmlFor="email">Email:</label>
@@ -36,14 +38,7 @@ function Login({ onSuccess }) {
             }}
           />
         </div>
-        <button
-          onClick={() => {
-            handleLogin();
-          }}
-          type="submit"
-        >
-          Login
-        </button>
+        <button type="submit">Login</button>
       </fieldset>
     </form>
   );
