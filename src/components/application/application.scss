@@ -1,5 +1,66 @@
+@import '../../styles/variables.scss';
+
 .application {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   background: #fff;
-  padding: 20px;
-  margin: 20px;
+  border-top: 2px solid $color-brand;
+  border-bottom: 2px solid $color-brand;
+  display: flex;
+  height: ($padding * 2);
+  padding: 0px $padding;
+  align-items: center;
+  box-shadow: $box-shadow;
+  h1 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+    color: $color-brand;
+  }
+}
+
+.user {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-size: 14px;
+    margin: 0 auto;
+  }
+}
+
+.userLink {
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+}
+
+.userLink:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url('http://placekitten.com/100/100');
+  margin-right: 4px;
+}
+
+.main {
+  display: block;
+  background: #efefef;
+  flex-grow: 1;
+  flex: 1;
+  padding: ($padding * 3) $padding $padding $padding;
 }

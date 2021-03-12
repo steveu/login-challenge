@@ -3,16 +3,23 @@ import './application.scss';
 function Application({ logout, user = {} }) {
   return (
     <div className="application">
-      <h1>Application</h1>
-      <p>Logged in as {user.email}</p>
-      <button
-        type="button"
-        onClick={() => {
-          logout();
-        }}
-      >
-        Logout
-      </button>
+      <header className="header">
+        <h1>Application</h1>
+        <div className="user">
+          <p className="userLink">{user.email}</p>
+          <button
+            type="button"
+            onClick={() => {
+              logout();
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      </header>
+      <main className="main">
+        <h1>Dashboard</h1>
+      </main>
     </div>
   );
 }

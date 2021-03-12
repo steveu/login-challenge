@@ -15,7 +15,7 @@ import Login from './components/login/login';
 function App() {
   const [user, setUser] = useState(false);
   const [loginError, setLoginError] = useState(false);
-
+  const [hasCheckedUser, setHasCheckedUser] = useState(false);
   // Read token from local storage on first render
   useEffect(() => {
     const token = localStorage.getItem('user');
@@ -28,6 +28,7 @@ function App() {
         });
       }
     }
+    setHasCheckedUser(true);
   }, []);
 
   const handleLogin = (email, password) => {
@@ -50,7 +51,7 @@ function App() {
     setUser(false);
   };
 
-  return (
+  return hasCheckedUser ? (
     <Fragment>
       {user ? (
         <Application user={user} logout={handleLogout} />
@@ -58,7 +59,7 @@ function App() {
         <Login onSuccess={handleLogin} error={loginError} />
       )}
     </Fragment>
-  );
+  ) : null;
 }
 
 export default App;
