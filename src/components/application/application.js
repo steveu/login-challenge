@@ -1,9 +1,14 @@
 import './application.scss';
 
-function Application() {
+function Application({
+  logout
+}) {
+
   return (
     <div className="application">
-      Login Challenge
+      <h1>Application</h1>
+
+      <button type="button" onClick={() => { logout(); }}>Logout</button>
     </div>
   );
 }
