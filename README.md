@@ -7,7 +7,7 @@
 * Password recovery (email with code standard)
 * Custom branding (colour/font modifiers on clean base styles. Allowing custom CSS simpler/more flexible?)
 * Logs (store login/logout events as user+timestamp+type would be flexibile. Also store login count against users?)
-* Authenticated dashboard for usage statistics (Active/inactive users, total/sso logins by day and/or time?)
+* Authenticated dashboard for usage statistics (Possibilities; Top active/inactive users, total/sso logins by day/time, logged in now count, login success/failure)
 * Single sign on integration (OAuth, OpenID, SAML possibilities. Modular support for multiple providers?)
 
 ## Assumtions
