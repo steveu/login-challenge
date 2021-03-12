@@ -1,5 +1,63 @@
+@import '../../styles/variables.scss';
+
 .login {
   background: #fff;
-  padding: 20px;
-  margin: 20px;
+  padding: $padding;
+  max-width: 280px;
+  border-radius: $border-radius;
+  border: 2px solid $color-brand;
+  margin: 100px auto 0px auto;
+  box-shadow: $box-shadow;
+}
+
+.field {
+  padding-bottom: 12px;
+}
+
+.field label {
+  display: block;
+  padding-bottom: 5px;
+  color: #555;
+}
+
+.field input {
+  box-sizing: border-box;
+  width: 100%;
+  font-family: $fontFamily;
+  font-size: 14px;
+  padding: 5px 8px;
+  border: 1px solid #aaa;
+  border-radius: $border-radius;
+
+  &:focus {
+    outline: none;
+    border-color: #485fc7;
+    box-shadow: 0 0 0 0.125em rgba(72, 95, 199, 0.2);
+  }
+}
+
+.button {
+  margin-top: 6px;
+  background: $color-brand;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 16px;
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  border: 1px solid $color-brand;
+  cursor: pointer;
+  &:hover {
+    background: darken($color-brand, 3);
+    border-color: darken($color-brand, 3);
+  }
+  &:focus {
+    outline: none;
+    border-color: #485fc7;
+    box-shadow: 0 0 0 0.125em rgba(72, 95, 199, 0.2);
+  }
+}
+
+.globalError {
+  padding-bottom: 18px;
 }

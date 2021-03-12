@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+body {
+  background: $color-lightGrey;
+  font-family: $fontFamily;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.75em 0;
+}
+h1 {
+  font-size: 140%;
+}

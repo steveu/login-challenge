@@ -1,44 +1,58 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import ErrorMessage from '../error-message/error-message';
 import './login.scss';
 
 function Login({ onSuccess, error }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const handleLogin = (event) => {
-    event.preventDefault();
-    onSuccess(email, password);
+  const { register, handleSubmit, errors } = useForm();
+  const handleLogin = (data) => {
+    onSuccess(data.email, data.password);
   };
 
   return (
-    <form className="login" method="post" onSubmit={handleLogin}>
-      <legend>Login</legend>
-      {error ? <p>{error}</p> : null}
+    <form className="login" onSubmit={handleSubmit(handleLogin)} noValidate>
+      <h1 className="loginTitle">Login</h1>
+      {error ? (
+        <div className="globalError">
+          <ErrorMessage error={{ message: error }} />
+        </div>
+      ) : null}
+
       <fieldset>
         <div className="field">
           <label htmlFor="email">Email:</label>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            defaultValue=""
+            ref={register({
+              required: true,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: 'Enter a valid e-mail address'
+              }
+            })}
           />
+          <ErrorMessage error={errors.email} />
         </div>
         <div className="field">
           <label htmlFor="password">Password:</label>
           <input
-            type="password"
             name="password"
             id="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            type="password"
+            defaultValue=""
+            ref={register({
+              required: true
+            })}
           />
+          <ErrorMessage error={errors.password} />
         </div>
-        <button type="submit">Login</button>
+        <button className="button" type="submit">
+          Login
+        </button>
       </fieldset>
     </form>
   );

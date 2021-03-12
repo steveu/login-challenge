@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { isExpired, decodeToken } from 'react-jwt';
 
 import { login } from './methods/user/user';
@@ -21,6 +21,7 @@ function App() {
     const token = localStorage.getItem('user');
     if (token) {
       const decodedToken = decodeToken(token);
+      // TODO: Check token expiry/validity
       if (decodedToken && decodedToken.email) {
         setUser({
           email: decodedToken.email
@@ -43,19 +44,20 @@ function App() {
       }
     );
   };
+
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(false);
   };
 
   return (
-    <div>
+    <Fragment>
       {user ? (
         <Application user={user} logout={handleLogout} />
       ) : (
         <Login onSuccess={handleLogin} error={loginError} />
       )}
-    </div>
+    </Fragment>
   );
 }
 

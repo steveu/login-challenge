@@ -14,7 +14,7 @@ export const login = (email, password) => {
       resolve(token);
     } else {
       reject({
-        error: 'Account not found'
+        error: 'Could not login using supplied details'
       });
     }
   });
