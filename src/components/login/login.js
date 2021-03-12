@@ -1,8 +1,6 @@
 import './login.scss';
 
-function Login({
-  onSuccess
-}) {
+function Login({ onSuccess }) {
   const handleLogin = () => {
     onSuccess();
   };
@@ -19,7 +17,14 @@ function Login({
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" />
         </div>
-        <button onClick={() => { handleLogin(); }} type="submit">Login</button>
+        <button
+          onClick={() => {
+            handleLogin();
+          }}
+          type="submit"
+        >
+          Login
+        </button>
       </fieldset>
     </form>
   );
