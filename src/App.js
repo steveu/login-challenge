@@ -13,9 +13,10 @@ import Application from './components/application/application';
 import Login from './components/login/login';
 
 function App() {
-  const [user, setUser] = useState(false);
-  const [loginError, setLoginError] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loginError, setLoginError] = useState(null);
   const [hasCheckedUser, setHasCheckedUser] = useState(false);
+
   // Read token from local storage on first render
   useEffect(() => {
     const token = localStorage.getItem('user');
