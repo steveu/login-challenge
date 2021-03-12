@@ -32,19 +32,17 @@ function App() {
     setHasCheckedUser(true);
   }, []);
 
-  const handleLogin = (email, password) => {
+  const handleLogin = async (email, password) => {
     setLoginError(false);
-    login(email, password).then(
-      (token) => {
-        localStorage.setItem('user', token);
-        setUser({
-          email
-        });
-      },
-      (response) => {
-        setLoginError(response.error);
-      }
-    );
+    try {
+      const token = await login(email, password);
+      localStorage.setItem('user', token);
+      setUser({
+        email
+      });
+    } catch (response) {
+      setLoginError(response.error);
+    }
   };
 
   const handleLogout = () => {
