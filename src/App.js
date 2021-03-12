@@ -1,13 +1,16 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { isExpired, decodeToken } from 'react-jwt';
 
 import { login } from './methods/user/user';
 
-// Application and login are loaded lazily to enable fast login
-const Application = React.lazy(() =>
-  import('./components/application/application')
-);
-const Login = React.lazy(() => import('./components/login/login'));
+/*
+  These component could be lazily loaded, e.g.
+  const Login = React.lazy(() => import('./components/login/login'));
+  To allow for fast showing of the login form
+  (I couldn't quickly get Suspense to work with the testing library)
+*/
+import Application from './components/application/application';
+import Login from './components/login/login';
 
 function App() {
   const [user, setUser] = useState(false);
@@ -46,13 +49,13 @@ function App() {
   };
 
   return (
-    <Suspense fallback={<div>Loading... </div>}>
+    <div>
       {user ? (
         <Application user={user} logout={handleLogout} />
       ) : (
         <Login onSuccess={handleLogin} error={loginError} />
       )}
-    </Suspense>
+    </div>
   );
 }
 
