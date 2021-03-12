@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   const handleLogin = async (email, password) => {
-    setLoginError(false);
+    setLoginError(null);
     try {
       const token = await login(email, password);
       localStorage.setItem('user', token);
@@ -47,7 +47,7 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
-    setUser(false);
+    setUser(null);
   };
 
   return hasCheckedUser ? (
