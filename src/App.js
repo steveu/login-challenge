@@ -55,7 +55,7 @@ function App() {
       {user ? (
         <Application user={user} logout={handleLogout} />
       ) : (
-        <Login onSuccess={handleLogin} error={loginError} />
+        <Login onSubmit={handleLogin} error={loginError} />
       )}
     </Fragment>
   ) : null;

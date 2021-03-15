@@ -4,10 +4,10 @@ import { useForm } from 'react-hook-form';
 import ErrorMessage from '../error-message/error-message';
 import './login.scss';
 
-function Login({ onSuccess, error }) {
+function Login({ onSubmit, error }) {
   const { register, handleSubmit, errors } = useForm();
   const handleLogin = (data) => {
-    onSuccess(data.email, data.password);
+    onSubmit(data.email, data.password);
   };
 
   return (
