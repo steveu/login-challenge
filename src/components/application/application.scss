@@ -38,13 +38,13 @@
   }
 }
 
-.userLink {
+.userEmail {
   display: flex;
   align-items: center;
   padding-right: 12px;
 }
 
-.userLink:before {
+.userEmail:before {
   content: '';
   display: block;
   width: 20px;

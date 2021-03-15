@@ -6,7 +6,7 @@ function Application({ logout, user = {} }) {
       <header className="header">
         <h1>Application</h1>
         <div className="user">
-          <p className="userLink">{user.email}</p>
+          <p className="userEmail">{user.email}</p>
           <button type="button" onClick={logout}>
             Logout
           </button>
