@@ -1,6 +1,12 @@
+import React, { useState } from 'react';
 import './application.scss';
+import StatsBody from "./StatsBody";
+import StatsResults from "./StatsResults";
 
 function Application({ logout, user = {} }) {
+  const [ route, setRoute ] = useState("form");
+  const [ body, setBody ] = useState("body");
+
   return (
     <div className="application">
       <header className="header">
@@ -14,6 +20,15 @@ function Application({ logout, user = {} }) {
       </header>
       <main>
         <h1>Dashboard</h1>
+
+        {route === "form"
+          ? (<StatsBody switchRoute={body => {
+            setRoute("results");
+            setBody(body);
+          }} />)
+          : (<StatsResults body={body} />)
+        }
+
       </main>
     </div>
   );
