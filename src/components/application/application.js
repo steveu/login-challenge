@@ -7,12 +7,7 @@ function Application({ logout, user = {} }) {
         <h1>Application</h1>
         <div className="user">
           <p className="userLink">{user.email}</p>
-          <button
-            type="button"
-            onClick={() => {
-              logout();
-            }}
-          >
+          <button type="button" onClick={logout}>
             Logout
           </button>
         </div>
