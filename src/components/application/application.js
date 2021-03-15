@@ -12,7 +12,7 @@ function Application({ logout, user = {} }) {
           </button>
         </div>
       </header>
-      <main className="main">
+      <main>
         <h1>Dashboard</h1>
       </main>
     </div>
