@@ -5,7 +5,7 @@ import fetch from "../../methods/user/stats";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export default ({switchRoute }) => {
+function StatsBody({switchRoute }) {
 
     const [email, setEmail] = useState("");
     const [datePart, setDatePart] = useState("");
@@ -52,3 +52,5 @@ export default ({switchRoute }) => {
     </main>;
 
 }
+
+export default StatsBody;
